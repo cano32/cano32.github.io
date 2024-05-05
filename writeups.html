@@ -1,0 +1,21 @@
+---
+layout: default
+title: Writeups
+---
+
+<h1 style="font-size: 200%; text-align: center;">Writeups</h1>
+
+<table id="writeuptable">
+    <tr>
+        <td>CTF</td>
+        <td>Challenge</td>
+        <td>Category</td>
+    </tr>
+    {% for writeup in site.writeups reversed %}
+        <tr>
+            <td>{{ writeup.ctf }}</td>
+            <td><a href="{{ writeup.url }}">{{ writeup.chal }}</a></td>
+            <td>{{ writeup.category }}</td>
+        </tr>
+    {% endfor %}
+</table>
