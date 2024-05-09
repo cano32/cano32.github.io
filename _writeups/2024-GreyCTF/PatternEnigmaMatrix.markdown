@@ -3,7 +3,7 @@ layout: default
 ctf: Grey CTF 2024
 chal: Pattern Enigma Matrix
 category: reversing
-flag: hm
+flag: grey{c0mp1le_t1m3_aaaaaaa_m4tch1nG_deff669870fc2fec5cef6f33a17d0b9c}
 ---
 
 # GreyCTF 2024
@@ -22,7 +22,7 @@ Testing the output:
 - Input "aaa"
   ![img](./2024-GreyCTF/PatternEnigmaMatrix/pem-2.png){: width="100%" }<br /><br />
 
-From the program output, we know we have to pass 11 cases.
+From the program output, we know we have to pass 11 cases.<br /><br />
 
 ### IDA
 Upon opening the file in IDA, there was already a problem loading it in graph form.
@@ -162,13 +162,14 @@ Following that is another for loop from 0 that breaks if >15.
 ![img](./2024-GreyCTF/PatternEnigmaMatrix/pem-14.png){: width="100%" }<br /><br />
 
 In the for loop, the comparisons set the following conditions for each character:
+![img](./2024-GreyCTF/PatternEnigmaMatrix/pem-19.png){: width="100%" }
 - If ( ( check_byte AND (char > "@" (40h) AND char <= "F" (46h)) ) \| (char > "`" (60h) AND char <= "f" (66h)) )
   -> check_byte = 1, char has to be [a-f]
   - If ( char > ‘/’ (2Fh) OR char <= ‘9’ (39h) )
-    -> 0-9<br /><br />
+    -> 0-9
 - This gives the regex [a-f0-9]{16}.<br /><br />
 
-All of these 3 ([def]{4}, 669870fc2fec, [a-f0-9]{16}) are in 1 big loop, so it forms a single case.
+All of these 3 ([def]{4}, 669870fc2fec, [a-f0-9]{16}) are in 1 big loop, so it forms a single case.<br /><br />
 
 Another one:
 ```
@@ -186,7 +187,9 @@ After this, there are multiple other similar loops:
 - Checks for 8 char, a-z/0-9
 - ‘_’
 - Checks for 32 char, a-f/0-9
-![img](./2024-GreyCTF/PatternEnigmaMatrix/pem-19.png){: width="100%" }<br /><br />
+<br />
+
+This gives the regex [a-z0-9]{7}\_[a-z0-9]{4}\_[a-zG0-9]{7}\_[a-z0-9]{8}\_[a-z0-9]{32}.<br /><br />
 
 Last one:
 ```
@@ -216,7 +219,15 @@ Last one:
 >
 > Case 11: [a-z0-9]{7}\_[a-z0-9]{4}\_[a-z0-9]{7}\_[a-z0-9]{8}\_[a-z0-9]{32}
 
-Flag:
-```grey{c0mp1le_t1m3_aaaaaaa_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```
 <br />
-("aaaaaaa" can be any 7 char, and "compile" and "aaaaaaa" can be swapped around as they are both 7 char due to Case 11, but the planned flag by the challenge authors is ```grey{c0mp1le_t1m3_p4tt3rn_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```)
+
+**Flag:
+```grey{c0mp1le_t1m3_aaaaaaa_m4tch1nG_deff669870fc2fec5cef6f33a17d0b9c}```**
+<br /><br />
+
+Exceptions:
+- "deff" can be any 4 char that is either "d", "e" or "f".
+- "aaaaaaa" can be any 7 char as there are no other restrictions other than Case 11.
+- "compile" and "aaaaaaa" can be swapped around as they are both 7 char (Case 11).<br />
+
+The intended flag by the challenge authors is ```grey{c0mp1le_t1m3_p4tt3rn_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```.
