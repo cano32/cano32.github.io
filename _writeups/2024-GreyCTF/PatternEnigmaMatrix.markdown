@@ -216,6 +216,7 @@ Last one:
 >
 > Case 11: [a-z0-9]{7}\_[a-z0-9]{4}\_[a-z0-9]{7}\_[a-z0-9]{8}\_[a-z0-9]{32}
 
-```Flag: grey{c0mp1le_t1m3_aaaaaaa_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```
+Flag:
+```grey{c0mp1le_t1m3_aaaaaaa_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```
 <br />
-("aaaaaaa" can be any 7 char, but the planned flag by the challenge authors is ```grey{c0mp1le_t1m3_p4tt3rn_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```)
+("aaaaaaa" can be any 7 char, and "compile" and "aaaaaaa" can be swapped around as they are both 7 char due to Case 11, but the planned flag by the challenge authors is ```grey{c0mp1le_t1m3_p4tt3rn_m4tch1nG_eefd669870fc2fec5cef6f33a17d0b9c}```)
