@@ -8,7 +8,7 @@ category: reversing
 # Flare-On 11 (2024)
 
 Get the binaries from the [Flare-On website](http://flare-on.com/files/Flare-On11_Challenges.zip) and
-[Flare-On 11 stats and solutions by Mandiant team]([https://cloud.google.com/blog/topics/threat-intelligence/flareon-11-challenge-solutions).<br />
+[Flare-On 11 stats and solutions by Mandiant team](https://cloud.google.com/blog/topics/threat-intelligence/flareon-11-challenge-solutions).<br />
 
 - [1](#1)
 - [2](#2)
@@ -673,12 +673,9 @@ while True:
 
 	# Handle the connection (for demonstration, we'll just send a message)
 	client_socket.send(b'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')	# 32 bytes
-	client_socket.send(b'bbbbbbbbbbbb')				# 12 bytes
-	client_socket.send(b'cccc')						# 4 bytes
+	client_socket.send(b'bbbbbbbbbbbb')                     # 12 bytes
+	client_socket.send(b'cccc')			        # 4 bytes
 	client_socket.send(b'test.txt')	# filename - file has data 0x80 = 128 bytes
-
-	# Close the client connection
-	# client_socket.close()
 ```
 <br />
 
