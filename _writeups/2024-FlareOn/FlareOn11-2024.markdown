@@ -801,7 +801,7 @@ python server.py
 
 In another terminal tab, run
 ```bash
-sudo strace -u root ./cradle -e trace=network -f -d
+sudo strace -u root ./test -e trace=network -f -d
 ```
 ![img](./2024-FlareOn11/flareon2024-5-12.png)<br /><br />
 
