@@ -37,20 +37,20 @@ Get the binaries from the [Flare-On website](http://flare-on.com/files/Flare-On1
 
 <br />
 Folder contents<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-1-1.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-1.png)<br /><br />
 
 Run frog.py. You need to move the frog through a maze to reach the statue.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-1-2.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-2.png)<br /><br />
 
 I didn't even read the code... just clicked randomly and you can get past here
 
 | 1 | 2 |
 | :---: | :---: |
-| <img src="../../../assets/img/2024-FlareOn11/flareon2024-1-3.png" width="260"> | <img src="../../../assets/img/2024-FlareOn11/flareon2024-1-4.png" width="260"> |
+| <img src=(https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-3.png" width="260"> | <img src=(https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-4.png" width="260"> |
 
-![img](../../../assets/img/2024-FlareOn11/flareon2024-1-5.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-5.png)<br /><br />
 
-![img](../../../assets/img/2024-FlareOn11/flareon2024-1-6.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-6.png)<br /><br />
 
 Flag: ```welcome_to_11@flare-on.com```<br /><br />
 
@@ -75,40 +75,40 @@ These are the exact blocks that we could past through earlier.<br /><br />
 > File: checksum.7z
 
 <br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-1.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-1.png)<br /><br />
 
 Opening it up in IDA, we observe in function main_main, this will be our goal - to produce REAL_FLAREON_FLAG.JPG<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-2.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-2.png)<br /><br />
 
 Starting near the top, you would want to go to the right path (green line) to continue and avoid the math.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-3.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-3.png)<br /><br />
 
 Edit > Patch program > Change byte<br />
 Patch jge to jl<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-4.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-4.png)<br />
 - Original<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-5.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-5.png)<br />
 - New<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-6.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-6.png)<br /><br />
 
 Now it only waits for an input<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-7.png)<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-8.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-7.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-8.png)<br /><br />
 
 I initially tried to debug and patch everywhere to get the image file produced but it’s empty<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-9.png)<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-10.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-9.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-10.png)<br /><br />
 
 From static analysis,
 - It uses ChaCha20-Poly1305, which has a key length of 32, nonce 12 and tag 16.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-11.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-11.png)<br />
 - There is a main_encryptedFlagData, at offset main__gobytes_1 (addr 1ADA80 to 1D9FAB), which is size 2C52Ch.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-12.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-12.png)<br />
 In hex view, select bytes from 1ADA80 to 1D9FAB and Shift+e, save as raw bytes.
 - It takes the sha256sum of the main_encryptedFlagData (d32cda47783eb42302583dafba4cfb151bfa145ccfb4e9d011cbd862b1075667), which happens to be length 32.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-13.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-13.png)<br />
 - REAL_FLAREON_FLAG image file will be produced in %LocalAppData% path.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-14.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-14.png)<br /><br />
 
 main_b seems to be for printing the output to command prompt.<br /><br />
 
@@ -117,8 +117,8 @@ main_a seems to be performing some sort of base64 encoding and XOR encryption.
 - Comparison with string length 88 = 0x58
 - memequal is called and compared to “cQoFRQErX1YAVw1zVQdFUSxfAQNRBXUNAxBSe15QCVRVJ1pQEwd/WFBUAlElCFBFUnlaB1ULByRdBEFdfVtWVA==” in rbx<br />
 (weird looks like i used ghidra here...)<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-15.png)<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-16.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-15.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-16.png)<br /><br />
 
 Script based on main_a
 ```python
@@ -135,8 +135,8 @@ print(decrypted_data.decode('utf-8'))
 <br />
 
 The resulting checksum is 7fd7dd1d0e959f74c133c13abb740b9faa61ab06bd0ecd177645e93b1e3825dd (turns out to be sha256sum of REAL_FLAREON_FLAG.JPG).<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-17.png)<br /><br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-2-18.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-17.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-2-18.png)<br /><br />
 Flag: ```Th3_M4tH_Do_b3_mAth1ng@flare-on.com```<br /><br />
 
 ## 3
@@ -373,11 +373,11 @@ Flag: ```1RuleADayK33p$Malw4r3Aw4y@flare-on.com```.<br /><br />
 
 <br />
 It’s a .html file, and you can select memes and edit the captions<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-4-1.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-4-1.png)<br /><br />
 
 Make it prettier with [https://deobfuscate.io/](https://deobfuscate.io/).<br />
 I edited the JavaScript code to deobfuscate and run on its own as .js file.<br /><br />
-[Zip file](../../../assets/file/2024-FlareOn11/4-mememaker3000.zip)
+[Zip file](https://cano32.github.io/assets/file/2024-FlareOn11/4-mememaker3000.zip)
 - mememakerprettify.js
 - mememakerprettify_edited.js
 <br /><br />
@@ -460,7 +460,7 @@ In function a0k(),
 - The function first retrieves the alt text of an image (from a0g) and splits it by /, taking the last part (using pop()).
   - It checks if this last part matches the sixth key in a0e (using Object.keys(a0e)[5]). If it doesn’t match, the function returns early and does nothing.
   - a0e stores the image files in order {“doge1.png", "draw.jpg", "drake.jpg", "two_buttons.jpg", "boy_friend0.jpg", "success.jpg", "disaster.jpg, "aliens.jpg"}, meaning a0e[5] would require "boy_friend0.jpg", which has 3 captions.
-  ![img](../../../assets/img/2024-FlareOn11/flareon2024-4-2.png)
+  ![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-4-2.png)
 - It gets the text content from caption1, caption2 and caption3, saving to const b, c, d respectively.
 - These conditions are checked to compare the text content of the captions to specific indices in the array a0c:
   - a0c.indexOf(b) == 14
@@ -476,7 +476,7 @@ The captions are:
 - Malware
 <br />
 
-![img](../../../assets/img/2024-FlareOn11/flareon2024-4-3.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-4-3.png)<br /><br />
 Flag: ```wh0a_it5_4_cru3l_j4va5cr1p7@flare-on.com```<br /><br />
 
 ## 5
@@ -527,7 +527,7 @@ gdb -ex "set sysroot /home/kali/Desktop/ssh_container" usr/sbin/sshd var/lib/sys
 - From this, we know some code from liblzma.so.5 was loaded and executed. 
 (refer to [xzutils](https://www.wiz.io/blog/cve-2024-3094-critical-rce-vulnerability-found-in-xz-utils), which has 3 hooks: RSA_public_decrypt, EVP_PKEY_set1_RSA and RSA_get0_key)
 - We can also tell from the asm code that the program stopped in liblzma.so.5 0x0010988f.
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-1.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-1.png)<br /><br />
 
 Analyze liblzma.so.5:<br />
 In FUN_00109820,
@@ -552,7 +552,7 @@ In FUN_00109820,
 <br /><br />
 
 Referring back to the core dump file, we find the stack at 0x7ffcc6601e90.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-2.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-2.png)
 - 0x7ffcc6601e90: 0x55b46d51dde0: value 0xc5407a48, an address in liblzma.so.5 that contains data to prepare the key and nonce
 - 0x7ffcc6601e98: 0x00007f4a18c8f88f: crashed code in liblzma.so.5
 - 0x7ffcc6601ea0: 0x55b46d58df60: 1D 14 1E 36 B1 55 00 00 26 2C 77 41 EF 4B 0D 59
@@ -576,10 +576,10 @@ Refer to the chacha20 key and nonce format here:
 ```
 
 Input the bytes from core dump file's 0x00007f4a188a1000 and the key and nonce into CyberChef.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-3.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-3.png)<br /><br />
 
 The end of the decrypted output looks like this:<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-4.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-4.png)<br /><br />
 
 In ghidra, load the decrypted file, select all code and click ‘d’ to disassemble it. We can see that it makes several syscalls.<br /><br />
 
@@ -599,7 +599,7 @@ typedef void (*func_t)(unsigned int, char*);
 
 int main()
 {
-	void *lib = dlopen("../../../assets/img/liblzma.so.5.4.1", RTLD_NOW);
+	void *lib = dlopen((https://cano32.github.io/assets/img/liblzma.so.5.4.1", RTLD_NOW);
 	if (!lib)
 	{
     	puts("Lib failed to load");
@@ -633,7 +633,7 @@ sudo strace -u root ./test
 We can see all the syscalls like open, read...<br /><br />
 
 At this point, we have not set up our server.
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-5.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-5.png)<br /><br />
 Together with reference to Ghidra on the decrypted file, we learn that it
 - Reads 32 bytes, 12 bytes, 4 bytes of data from server.
 - Reads file name to be read.
@@ -696,13 +696,13 @@ sudo gdb -ex "set sysroot /home/kali/Desktop/ssh_container" ./test
 
 Search in the dump_file.bin for the dummy inputs and filename
 - 32 + 12 bytes input offset: 0x1EE98; filename offset: 0x1EEC8<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-6.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-6.png)
 - 4 bytes input offset: 0x20048
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-7.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-7.png)
 - 32 + 12 bytes input offset: 0x20098, 0x200E0
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-8.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-8.png)
 ...
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-9.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-9.png)<br /><br />
 
 On the test.cpp file stack,
 - From "aaaaa…test.txt" to "expand 32-byte k" (which also appears in sshd core dump stack)
@@ -712,7 +712,7 @@ On the test.cpp file stack,
 
 Using this information, in sshd core,
 - 0x7ffc c660 1f40 - 0x1358 = 0x7ffc c660 0be8<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-10.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-10.png)
   - 0x7ffc c660 0be8: 32 byte data
   - 0x7ffc c660 0c08: 12 byte data
   - 0x7ffc c660 0c15: 4 byte data
@@ -750,7 +750,7 @@ sendto(-111, "yV\253\254O\227", 6, 0, NULL, 0) = -1 EBADF (Bad file descriptor)
 Taking this,
 - Add to the address of the filename in the sshd core dump
   - 0x7ffc c660 0c18 + 0x100 = 0x7ffc c660 0d18
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-11.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-11.png)<br /><br />
 
 Updated server.py:
 ```python
@@ -809,7 +809,7 @@ In another terminal tab, run
 ```bash
 sudo strace -u root ./test -e trace=network -f -d
 ```
-![img](../../../assets/img/2024-FlareOn11/flareon2024-5-12.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-5-12.png)<br /><br />
 
 Flag: ```supp1y_cha1n_sund4y@flare-on.com```<br /><br />
 
@@ -822,7 +822,7 @@ Flag: ```supp1y_cha1n_sund4y@flare-on.com```<br /><br />
 > File: bloke2.7z
 
 <br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-1.png)<br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-1.png)<br />
 Read the README.md. We do not need to understand Blake2 hash as this is a modified version.<br /><br />
 
 How to build and run the testbenches:
@@ -834,40 +834,40 @@ iverilog -g2012 -o bloke2.out bloke2.v f_sched.v f_unit.v g_over_2.v g.v g_unit.
 
 $ make tests
 ```
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-2.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-2.png)<br /><br />
 
 Notice this TEST_VAL in data_mgr.v:<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-3.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-3.png)<br /><br />
 
 It is used in some operations in this line here, involving h_in and tst value. 
 The $display(...) lines were originally commented out but I uncommented them all (in this file, 1 not in the pic).<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-4.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-4.png)<br /><br />
 
 Upon running “make tests”, notice that in all iterations of the 3 test cases, tst is 0.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-5.png)
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-5.png)
 - If tst = 0, {(W*16){0}} will be all 0s, meaning TEST_VAL & {(W*16){0}} will be 0. So h_in will remain unchanged.
 - If tst = 1, {(W*16){1}} will be all 1s, meaning it will have no effect on TEST_VAL, and h_in will be XORed with TEST_VAL. This is what we want to happen.
 <br /><br />
 
 I went ahead and commented out all except the line we are concerned with, to monitor the tst value t.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-6.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-6.png)<br /><br />
 
 This is the output and you can clearly see that the tst values across the board are all 0s.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-7.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-7.png)<br /><br />
 
 To get tst = 1, look more into data_mgr.v. We see that the tst signal is affected by the finish signal, which is controlled in bloke2b_tb.v.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-8.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-8.png)<br /><br />
 
 We notice in bloke2b_tb.v, the finish signal is not set correctly.<br />
 The correct way is for the finish signal to be asserted (1) for one clock cycle and then deasserted (0).
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-9.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-9.png)<br /><br />
 
 We can infer from the other lines where the finish signal is set correctly.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-10.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-10.png)<br /><br />
 
 Make the change accordingly.<br />
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-11.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-11.png)<br /><br />
 
-![img](../../../assets/img/2024-FlareOn11/flareon2024-6-12.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-6-12.png)<br /><br />
 
 Flag: ```please_send_help_i_am_trapped_in_a_ctf_flag_factory@flare-on.com```<br /><br />

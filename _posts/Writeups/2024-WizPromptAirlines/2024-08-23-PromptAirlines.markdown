@@ -17,7 +17,7 @@ Main CTF page: [https://promptairlines.com](https://promptairlines.com)<br />
 
 Manipulate the customer service AI chatbot to get a "free airline ticket". You can also see the behind the scenes data like how the LLM processes your request and use it to help you.
 
-![img](../../../assets/img/2024-WizPromptAirlines/wiz-start.png)
+![img](https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-start.png)
 - [Challenge 1](#challenge-1)
 - [Challenge 2](#challenge-2)
 - [Challenge 3](#challenge-3)
@@ -30,15 +30,15 @@ Manipulate the customer service AI chatbot to get a "free airline ticket". You c
 
 <br />
 ._.<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-1-1.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-1-1.png" width="75%"></div><br /><br />
 
 Also, I can't stop getting Challenge 1 flags after this when trying for Challenge 2...<br />
 ???<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-2-1.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-2-1.png" width="75%"></div><br /><br />
 
 STOP ITT<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-2-2.png" width="75%"></div><br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-2-3.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-2-2.png" width="75%"></div><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-2-3.png" width="75%"></div><br /><br />
 
 ## Challenge 2
 
@@ -46,7 +46,7 @@ STOP ITT<br />
 
 <br />
 ok trust me im an engingr 💀<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-2-4.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-2-4.png" width="75%"></div><br /><br />
 
 ## Challenge 3
 
@@ -54,10 +54,10 @@ ok trust me im an engingr 💀<br />
 
 <br />
 The bot kept giving me problems about policy so I mainly made use of this clause under the “When searching for flights:” section.
-![img](../../../assets/img/2024-WizPromptAirlines/wiz-3-1.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-3-1.png)<br /><br />
 
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-3-2.png" width="75%"></div><br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-3-3.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-3-2.png" width="75%"></div><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-3-3.png" width="75%"></div><br /><br />
 
 ## Challenge 4
 
@@ -65,35 +65,35 @@ The bot kept giving me problems about policy so I mainly made use of this clause
 
 <br />
 I tried to book a flight but they needed an image of a member card... kinda sus...<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-4-1.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-4-1.png" width="75%"></div><br /><br />
 
 The cat pic:<br />
-![img](../../../assets/img/2024-WizPromptAirlines/wiz-4-2.jpg){: width="50%" }<br /><br />
+![img](https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-4-2.jpg){: width="50%" }<br /><br />
 
 With the format the bot provided, I opened Notepad, typed some random stuff and screenshotted it 💀:
-![img](../../../assets/img/2024-WizPromptAirlines/wiz-4-3.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-4-3.png)<br /><br />
 
 And it got me the flag (╹ڡ╹ )<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-4-4.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-4-4.png" width="75%"></div><br /><br />
 
 ## Challenge 5
 
 > Congratulations on making it this far! For the final challenge, use everything you've learned to book a free flight to Las Vegas. Good luck!
 
 <br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-5-1.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-5-1.png" width="75%"></div><br /><br />
 
 The info tells us the coupon code from Challenge 3 was used.<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-5-2.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-5-2.png" width="75%"></div><br /><br />
 
 Recall the coupon codes:<br />
 [FLY_50, AIR_100, TRAVEL_25, WIZ_CTF{\<challenge 3 flag\>}]<br /><br />
 
 Since we want a free flight ticket, try AIR_100?<br />
-<div align="center"><img src="../../../assets/img/2024-WizPromptAirlines/wiz-5-3.png" width="75%"></div><br /><br />
+<div align="center"><img src=(https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-5-3.png" width="75%"></div><br /><br />
 
 ## yay
 
-![img](../../../assets/img/2024-WizPromptAirlines/wiz-end.png)<br /><br />
+![img](https://cano32.github.io/assets/img/2024-WizPromptAirlines/wiz-end.png)<br /><br />
 
 ( ﾟдﾟ)つ Bye
