@@ -44,7 +44,7 @@ I didn't even read the code... just clicked randomly and you can get past here
 
 | 1 | 2 |
 | :---: | :---: |
-| <img src="https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-3.png" width="260"> | <img src="https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-4.png" width="260"> |
+| <img src="https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-3.png" alt="Screenshot from Flare-On 11 challenge 1-3" width="260"> | <img src="https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-4.png" alt="Screenshot from Flare-On 11 challenge 1-4" width="260"> |
 
 ![img](https://cano32.github.io/assets/img/2024-FlareOn11/flareon2024-1-5.png)<br /><br />
 

@@ -82,10 +82,10 @@ Here are the images with my annotations:
 
 | cook1elog1c-1.png | cook1elog1c-2.png |
 | :---: | :---: |
-| <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-3.png" width="450"> | <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-4.png" width="260"> |
+| <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-3.png" alt="SINCON 2024 challenge 3-3 Annotation" width="450"> | <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-4.png" alt="SINCON 2024 challenge 3-4 Annotation" width="260"> |
 | **cook1elog1c-3.png** | **cook1elog1c-4.png** |
 | :---: | :---: |
-| <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-5.png" width="450"> | <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-6.png" width="450"> |
+| <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-5.png" alt="SINCON 2024 challenge 3-5 Annotation" width="450"> | <img src="https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-6.png" alt="SINCON 2024 challenge 3-6 Annotation" width="450"> |
 
 Together, it gives 01100011 01100001 01101011 00110011. Use Cyberchef:
 ![img](https://cano32.github.io/assets/img/2024-SINCON/sincon2024-3-7.png)<br /><br />
@@ -204,6 +204,6 @@ Flag: ```give that man a cookie```<br /><br />
 ![img](https://cano32.github.io/assets/img/2024-SINCON/sincon2024-end.png)<br /><br />
 
 The badge:<br />
-<img src="https://cano32.github.io/assets/img/2024-SINCON/badge.gif" width="450">
+<img src="https://cano32.github.io/assets/img/2024-SINCON/badge.gif" alt="SINCON 2024 Badge GIF " width="450">
 
 (▀̿Ĺ▀̿ ̿)ノ♪
